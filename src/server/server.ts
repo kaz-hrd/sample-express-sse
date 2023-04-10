@@ -72,6 +72,7 @@ class Server {
           message: input.message,
         });
       }
+      res.status(200).json({result: 'OK'}).end();
     });
 
     // start.
