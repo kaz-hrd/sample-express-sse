@@ -21,7 +21,7 @@ class Server {
   private readonly _clientList = new Map<string, PeerInfo>();
   constructor(private _port: number) {}
   start() {
-    Log(`Stating... port=${PORT}`);
+    Log(`Starting... port=${PORT}`);
     this._express = express();
     this._express.use(express.json());
     this._express.use(express.urlencoded({ extended: true }));
