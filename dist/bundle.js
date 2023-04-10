@@ -33984,14 +33984,13 @@ var MsgSender = function () {
     };
     var sendMessage = function (e) {
         (function () { return __awaiter(void 0, void 0, void 0, function () {
+            var lastSendDate_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (!form.message) return [3 /*break*/, 2];
                         setDisabledState(true);
-                        setTimeout(function () {
-                            setDisabledState(false);
-                        }, 5000);
+                        lastSendDate_1 = new Date();
                         return [4 /*yield*/, fetch('send', {
                                 method: 'POST',
                                 headers: {
@@ -34003,7 +34002,10 @@ var MsgSender = function () {
                             })];
                     case 1:
                         _a.sent();
-                        setForm(__assign(__assign({}, form), { lastSendDate: new Date(), message: '' }));
+                        setTimeout(function () {
+                            setDisabledState(false);
+                            setForm(__assign(__assign({}, form), { lastSendDate: lastSendDate_1, message: '' }));
+                        }, 5000);
                         _a.label = 2;
                     case 2: return [2 /*return*/];
                 }

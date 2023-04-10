@@ -19,9 +19,7 @@ const MsgSender = () => {
     (async () => {
       if (form.message) {
         setDisabledState(true);
-        setTimeout(() => {
-          setDisabledState(false);
-        }, 5000);
+        const lastSendDate = new Date();
         await fetch('send', {
           method: 'POST',
           headers: {
@@ -31,7 +29,10 @@ const MsgSender = () => {
             message: form.message,
           }),
         });
-        setForm({ ...form, lastSendDate: new Date(), message: '' });
+        setTimeout(() => {
+          setDisabledState(false);
+          setForm({ ...form, lastSendDate: lastSendDate, message: '' });
+        }, 5000);
       }
     })();
   };
