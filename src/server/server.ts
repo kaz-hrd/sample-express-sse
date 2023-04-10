@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from 'express';
 
 import { NotificationMsg } from '../common/common';
 
-const PORT = 3010;
+const PORT = Number(!!process.env.PORT) || 3000;
 
 interface PeerInfo {
   id: string;
@@ -21,6 +21,7 @@ class Server {
   private readonly _clientList = new Map<string, PeerInfo>();
   constructor(private _port: number) {}
   start() {
+    Log(`Stating... port=${PORT}`);
     this._express = express();
     this._express.use(express.json());
     this._express.use(express.urlencoded({ extended: true }));
