@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from 'express';
 
 import { NotificationMsg } from '../common/common';
 
-const PORT = Number(!!process.env.PORT) || 3000;
+const PORT = Number(!!process.env.PORT) || 3010;
 
 interface PeerInfo {
   id: string;
