@@ -111,7 +111,7 @@ class Server {
     this.broadcastMessage({
       mode: 'clientList',
       message: 'clientList',
-      data: JSON.stringify(list),
+      data: list,
     });
   }
 }

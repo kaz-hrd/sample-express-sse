@@ -34093,7 +34093,7 @@ var SseListener = function () {
                     break;
                 case 'clientList':
                     if (data.data) {
-                        setClientList(JSON.parse(data.data));
+                        setClientList(data.data);
                     }
                     break;
             }

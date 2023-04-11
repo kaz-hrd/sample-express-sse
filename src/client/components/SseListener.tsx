@@ -60,7 +60,7 @@ const SseListener = () => {
           break;
         case 'clientList':
           if (data.data) {
-            setClientList(JSON.parse(data.data));
+            setClientList(data.data);
           }
           break;
       }
